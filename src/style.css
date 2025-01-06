@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    :root {
+      --primary-color: #1a1a1a;
+      --secondary-color: #2d2d2d;
+      --accent-color: #ff6b6b;
+      --text-color: #f5f5f5;
+      --border-color: #404040;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      background-color: var(--primary-color);
+      color: var(--text-color);
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: var(--secondary-color);
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--text-color);
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    h1::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background-color: var(--accent-color);
+      border-radius: 2px;
+    }
+
+    .search-container {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    #searchInput {
+      flex: 1;
+      padding: 1rem;
+      border: 2px solid var(--border-color);
+      border-radius: 8px;
+      background-color: var(--primary-color);
+      color: var(--text-color);
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    #searchInput::placeholder {
+      color: rgba(245, 245, 245, 0.6);
+    }
+
+    #searchInput:focus {
+      outline: none;
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
+    }
+
+    #searchButton {
+      padding: 1rem 2rem;
+      background-color: var(--accent-color);
+      color: var(--primary-color);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+    }
+
+    #searchButton:hover {
+      background-color: #ff5252;
+      transform: translateY(-2px);
+    }
+
+    #wikiContent {
+      margin-top: 2rem;
+      line-height: 1.8;
+      animation: fadeIn 0.5s ease;
+    }
+
+    #wikiContent h2 {
+      color: var(--text-color);
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    #wikiContent h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background-color: var(--accent-color);
+    }
+
+    #wikiContent p {
+      margin-bottom: 1rem;
+      color: rgba(245, 245, 245, 0.9);
+    }
+
+    #wikiContent a {
+      color: var(--accent-color);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    #wikiContent a:hover {
+      color: #ff5252;
+      border-bottom-color: #ff5252;
+    }
+
+    .loading {
+      text-align: center;
+      font-size: 1.2rem;
+      color: rgba(245, 245, 245, 0.8);
+      animation: pulse 1.5s infinite;
+    }
+
+    .error {
+      color: #ff6b6b;
+      text-align: center;
+      padding: 1rem;
+      background: rgba(255, 107, 107, 0.1);
+      border-radius: 8px;
+      margin: 1rem 0;
+      border: 1px solid rgba(255, 107, 107, 0.2);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        opacity: 0.5;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0.5;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+      
+      .container {
+        padding: 1.5rem;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .search-container {
+        flex-direction: column;
+      }
+      
+      #searchButton {
+        width: 100%;
+      }
+    }
